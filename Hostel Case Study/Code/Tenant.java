@@ -35,6 +35,7 @@ public class Tenant
 	/** Records a payment for the tenant */
 	public void makePayment(Payment paymentIn)
 	{
+
 		payments.add(paymentIn); // call PaymentList method
 	}
 	
@@ -43,5 +44,6 @@ public class Tenant
 	{
 		return payments;
 	}
+
 }
 
