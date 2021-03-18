@@ -70,7 +70,7 @@ class ObjectListTests {
 		objectList.add(10);
 		
 		boolean result = objectList.add(12);
-		
+	
 		// assert
 		assertFalse(result);
 	}
