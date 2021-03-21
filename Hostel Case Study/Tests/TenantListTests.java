@@ -7,6 +7,7 @@ import org.junit.jupiter.api.Test;
 class TenantListTests {
 	
 	private TenantList tenantList;
+	private Tenant tenant;
 
 	@BeforeEach
 	void setUp() throws Exception {
@@ -23,7 +24,7 @@ class TenantListTests {
 		tenantList.add(new Tenant("Tenant Name 1", 1));
 		
 		//act
-		var tenant = tenantList.getTenant(1);
+		tenant = tenantList.getTenant(1);
 		
 		//assert
 		assertEquals("Tenant Name 1", tenant.getName());
@@ -32,7 +33,7 @@ class TenantListTests {
 	@Test
 	void getTenantShouldReturnNullWhenPositionLessThanOne() {
 		//act
-		var tenant = tenantList.getTenant(0);
+		tenant = tenantList.getTenant(0);
 		
 		//assert
 		assertNull(tenant);
@@ -41,7 +42,7 @@ class TenantListTests {
 	@Test
 	void getTenantShouldReturnNullWhenPositionGreaterThanTotal() {
 		//act
-		var tenant = tenantList.getTenant(4);
+		tenant = tenantList.getTenant(4);
 		
 		//assert
 		assertNull(tenant);
@@ -53,7 +54,7 @@ class TenantListTests {
 		tenantList.add(new Tenant("Tenant Name 1", 1));
 		
 		//act
-		var tenant = tenantList.search(1);
+		tenant = tenantList.search(1);
 		
 		//assert
 		assertEquals(1, tenant.getRoom());
@@ -67,7 +68,7 @@ class TenantListTests {
 		tenantList.add(new Tenant("Tenant Name 2", 2));
 		
 		//act
-		var tenant = tenantList.search(2);
+		tenant = tenantList.search(2);
 		
 		//assert
 		assertEquals(2, tenant.getRoom());
@@ -80,7 +81,7 @@ class TenantListTests {
 		tenantList.add(new Tenant("Tenant Name 1", 1));
 		
 		//act
-		var tenant = tenantList.search(2);
+		tenant = tenantList.search(2);
 		
 		//assert
 		assertNull(tenant);
@@ -89,7 +90,7 @@ class TenantListTests {
 	@Test
 	void searchShouldReturnNullWhenEmptyList() {
 		//act
-		var tenant = tenantList.search(1);
+		tenant = tenantList.search(1);
 		
 		//assert
 		assertNull(tenant);
@@ -101,7 +102,7 @@ class TenantListTests {
 		tenantList.add(new Tenant("Tenant Name 1", 1));
 		
 		//act
-		var wasRemoved = tenantList.removeTenant(1);
+		boolean wasRemoved = tenantList.removeTenant(1);
 		
 		//assert
 		assertTrue(wasRemoved);
@@ -114,7 +115,7 @@ class TenantListTests {
 		tenantList.add(new Tenant("Tenant Name 2", 2));
 		
 		//act
-		var wasRemoved = tenantList.removeTenant(2);
+		boolean wasRemoved = tenantList.removeTenant(2);
 		
 		//assert
 		assertTrue(wasRemoved);
@@ -124,7 +125,7 @@ class TenantListTests {
 	@Test
 	void removeTenantShouldReturnFalseWhenEmpty() {
 		//act
-		var wasRemoved = tenantList.removeTenant(1);
+		boolean wasRemoved = tenantList.removeTenant(1);
 		
 		//assert
 		assertFalse(wasRemoved);
@@ -136,7 +137,7 @@ class TenantListTests {
 		tenantList.add(new Tenant("Tenant Name 1", 1));
 		
 		//act
-		var wasRemoved = tenantList.removeTenant(2);
+		boolean wasRemoved = tenantList.removeTenant(2);
 		
 		//assert
 		assertFalse(wasRemoved);

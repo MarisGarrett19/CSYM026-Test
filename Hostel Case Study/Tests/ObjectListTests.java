@@ -33,7 +33,7 @@ class ObjectListTests {
 		// act
 		objectList.add(12);
 		
-		var total = objectList.getTotal();
+		int total = objectList.getTotal();
 		
 		// assert
 		assertEquals(1, total);
@@ -46,7 +46,7 @@ class ObjectListTests {
 		objectList.add(14);
 		objectList.add(15);
 		
-		var total = objectList.getTotal();
+		int total = objectList.getTotal();
 		
 		// assert
 		assertEquals(3, total);
