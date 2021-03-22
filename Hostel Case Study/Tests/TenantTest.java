@@ -21,27 +21,26 @@ class TenantTest {
     }
 
     @Test
-    void getName() {
+    void getNameReturnsTenantName() {
         assertEquals("Sasha", myTenant.getName());
     }
 
     @Test
-    void getRoom() {
+    void getRoomReturnsTenantRoomNumber() {
         assertEquals(2, myTenant.getRoom());
     }
 
     @Test
-    void makePayment() {
+    void makePaymentAddsPaymentToPaymentList() {
         myTenant.makePayment(payment);
         assertEquals("May", payment.getMonth());
     }
 
     @Test
-    void getPayments() {
+    void getPaymentsReturnsPayment() {
         assertTrue(myTenant.getPayments().isEmpty());
         myTenant.makePayment(payment);
         assertFalse((myTenant.getPayments().isEmpty()));
-
 
     }
 
