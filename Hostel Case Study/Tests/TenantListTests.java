@@ -7,7 +7,6 @@ import org.junit.jupiter.api.Test;
 class TenantListTests {
 	
 	private TenantList tenantList;
-	private Tenant tenant;
 
 	@BeforeEach
 	void setUp() throws Exception {
@@ -24,7 +23,7 @@ class TenantListTests {
 		tenantList.add(new Tenant("Tenant Name 1", 1));
 		
 		//act
-		tenant = tenantList.getTenant(1);
+		var tenant = tenantList.getTenant(1);
 		
 		//assert
 		assertEquals("Tenant Name 1", tenant.getName());
@@ -33,7 +32,7 @@ class TenantListTests {
 	@Test
 	void getTenantShouldReturnNullWhenPositionLessThanOne() {
 		//act
-		tenant = tenantList.getTenant(0);
+		var tenant = tenantList.getTenant(0);
 		
 		//assert
 		assertNull(tenant);
@@ -42,7 +41,7 @@ class TenantListTests {
 	@Test
 	void getTenantShouldReturnNullWhenPositionGreaterThanTotal() {
 		//act
-		tenant = tenantList.getTenant(4);
+		var tenant = tenantList.getTenant(4);
 		
 		//assert
 		assertNull(tenant);
@@ -54,7 +53,7 @@ class TenantListTests {
 		tenantList.add(new Tenant("Tenant Name 1", 1));
 		
 		//act
-		tenant = tenantList.search(1);
+		var tenant = tenantList.search(1);
 		
 		//assert
 		assertEquals(1, tenant.getRoom());
@@ -68,7 +67,7 @@ class TenantListTests {
 		tenantList.add(new Tenant("Tenant Name 2", 2));
 		
 		//act
-		tenant = tenantList.search(2);
+		var tenant = tenantList.search(2);
 		
 		//assert
 		assertEquals(2, tenant.getRoom());
@@ -81,7 +80,7 @@ class TenantListTests {
 		tenantList.add(new Tenant("Tenant Name 1", 1));
 		
 		//act
-		tenant = tenantList.search(2);
+		var tenant = tenantList.search(2);
 		
 		//assert
 		assertNull(tenant);
@@ -90,7 +89,7 @@ class TenantListTests {
 	@Test
 	void searchShouldReturnNullWhenEmptyList() {
 		//act
-		tenant = tenantList.search(1);
+		var tenant = tenantList.search(1);
 		
 		//assert
 		assertNull(tenant);
